@@ -1,0 +1,28 @@
+{
+  "name": "top-battleship",
+  "version": "1.0.0",
+  "description": "Play the classic game of Battleship against a CPU!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timcbuck/TOP-battleship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timcbuck/TOP-battleship/issues"
+  },
+  "homepage": "https://github.com/timcbuck/TOP-battleship#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}
