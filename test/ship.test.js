@@ -1,5 +1,6 @@
-import Ship from "../src/ship.js";
-const ship = new Ship(3);
+const Gameboard = require("../src/gameboard.js");
+const Ship = require("../src/ship.js")
+const ship = new Ship("ship1", 3);
 
 test("Ship gets hit and sinks", () => {
     expect(ship.isSunk()).not.toBeTruthy();

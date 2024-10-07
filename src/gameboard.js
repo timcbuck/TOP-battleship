@@ -1,12 +1,8 @@
-export default class Gameboard {
-    board;
-    shipLocations = {};
+import Ship from "./ship.js";
 
+
+class Gameboard {
     constructor() {
-        // "-" = empty space
-        // "O" = hit ship
-        // "X" = miss
-        // "S" = ship
         this.board = [
             ["-", "-", "-", "-", "-", "-", "-"],
             ["-", "-", "-", "-", "-", "-", "-"],
@@ -16,6 +12,14 @@ export default class Gameboard {
             ["-", "-", "-", "-", "-", "-", "-"],
             ["-", "-", "-", "-", "-", "-", "-"],
         ];
+        this.locationsHit = [];
+    }
+
+    placeShipsMock(ship) {
+        // Place a ship on first row to help with testing
+        this.board[0][0] = ship;
+        this.board[0][1] = ship;
+        this.board[0][2] = ship;
     }
 
     placeShips(ships) {
@@ -47,20 +51,14 @@ export default class Gameboard {
                     canPlace = false;
                 }
                 if (canPlace && isHorizontal) {
-                    let shipLocation = [];
                     for (let i = 0; i < ship.length; i++) {
-                        this.board[x][y + i] = "S"; // TODO: remove this as we don't want to display where the ship is
-                        shipLocation.push([x, y + i]);
+                        this.board[x][y + i] = ship;
                     }
-                    this.shipLocations[ship.name] = shipLocation;
                     placed = true;
                 } else if (canPlace && !isHorizontal) {
-                    let shipLocation = [];
                     for (let i = 0; i < ship.length; i++) {
-                        this.board[x + i][y] = "S"; // TODO: remove this as we don't want to display where the ship is
-                        shipLocation.push([x + i, y]);
+                        this.board[x + i][y] = ship;
                     }
-                    this.shipLocations[ship.name] = shipLocation;
                     placed = true;
                 }
             }
@@ -70,13 +68,28 @@ export default class Gameboard {
 
     receiveAttack(x, y) {
         // Check if a ship was hit
-        // Sends "isHit" function to the correct ship
-        // Or record coordinates of missed shot
+        if (this.board[x][y] instanceof Ship) {
+            console.log("Hit!");
+            this.board[x][y].hit();
+        } else {
+            console.log("Missed!");
+        }
+
         // Calls updateBoard function
+        this.updateBoard(x, y);
+
     }
 
-    updateBoard(x, y, status) {
-        this.board[x][y] = status; // Status = "X" (miss) or "O" (ship hit)
+    updateBoard(x, y) {
+        // If (x, y) is a ship, show ship
+
+        // If (x, y) is empty, show X
+
+
     }
 
 }
+
+
+// module.exports = Gameboard; // CommonJS
+export default Gameboard; // ESM

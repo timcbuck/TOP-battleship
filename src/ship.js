@@ -1,9 +1,9 @@
 class Ship {
-    sunk = false;
-    timesHit = 0;
     constructor(name, length) {
         this.name = name;
         this.length = length;
+        this.sunk = false;
+        this.timesHit = 0;
     }
 
     hit() {
@@ -16,4 +16,6 @@ class Ship {
 
 }
 
-module.exports = Ship; // CommonJS export
+
+// module.exports = Ship; // CommonJS
+export default Ship;

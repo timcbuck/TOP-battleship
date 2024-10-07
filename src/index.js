@@ -8,6 +8,10 @@ let ship2 = new Ship("ship2", 2);
 const ships = [ship1, ship2];
 
 
-gameboard.placeShips(ships);
+gameboard.placeShipsMock(ship1);
 console.log(gameboard.board);
-console.log(gameboard.shipLocations);
+gameboard.receiveAttack(0, 1);
+gameboard.receiveAttack(4, 2);
+let ship = gameboard.board[0][0];
+console.log(ship);
+console.log(ship.timesHit);
