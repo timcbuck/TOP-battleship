@@ -1,3 +1,38 @@
 body {
-    background-color: rebeccapurple;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 80px;
+    background-color: rgb(191, 210, 230);
+    display: flex;
+    flex-direction: column; /* Stack the elements vertically */
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 50px; /* Space between the title and the game container */
+}
+
+.game-container {
+    display: flex;
+    align-items: center; /* Vertically center the boards in the container */
+    gap: 75px; /* Horizontal gap between boards */
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns */
+    grid-template-rows: repeat(7, 1fr); /* Create 7 equal rows */
+    width: 450px;
+    height: 450px;
+}
+
+.grid-space {
+    border: 1px solid black; /* Add border to visualize the grid spaces */
+    background-color: lightblue; /* Optional: background color for grid spaces */
+    cursor: pointer;
+}
+
+.grid-ship {
+    border: 1px solid black; /* Add border to visualize the grid spaces */
+    background-color: lightcoral; /* Optional: background color for grid spaces */
+    cursor: pointer;
 }

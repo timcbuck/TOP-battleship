@@ -15,8 +15,23 @@ class Gameboard {
         this.locationsHit = [];
     }
 
+    drawBoard(boardId) {
+        const board = document.getElementById(boardId);
+        this.board.forEach(row => {
+            row.forEach(space => {
+                const div = document.createElement('div');
+                if (space === "-") {
+                    div.classList.add('grid-space');
+                } else if (space instanceof Ship) {
+                    div.classList.add('grid-ship');
+                }
+                board.appendChild(div);
+            });
+        });
+    }
+
     placeShipsMock(ship) {
-        // Place a ship on first row to help with testing
+        // Manually place a ship on first row to help with testing
         this.board[0][0] = ship;
         this.board[0][1] = ship;
         this.board[0][2] = ship;
@@ -71,6 +86,8 @@ class Gameboard {
         if (this.board[x][y] instanceof Ship) {
             console.log("Hit!");
             this.board[x][y].hit();
+            // TODO: Check if sunk
+
         } else {
             console.log("Missed!");
         }
